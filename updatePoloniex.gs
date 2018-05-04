@@ -14,7 +14,11 @@ function updatePoloniex(){
   var response = UrlFetchApp.fetch("https://poloniex.com/public?command=returnTicker");
   var json = JSON.parse(response.getContentText());
  
-  var i = 1;
+  // Limpa as células no intervalo A1 até CV2
+  sheet.getRange('A1:CV2').clearContent();
+  // Valores da última cotação de todas as moedas da Poloniex
+  sheet.getRange(2, 1).setValue("Poloniex");
+  var i = 2;
   Object.keys(json).forEach(function(key){
     sheet.getRange(1, i).setValue(key);
     sheet.getRange(2, i).setValue(json[key]['last']);
