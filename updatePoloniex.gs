@@ -112,6 +112,6 @@ function updatePoloniex(){
   sheet.getRange(2, 97).setValue(json.BTC_OMG.last);
   sheet.getRange(2, 98).setValue(json.ETH_OMG.last);
   sheet.getRange(2, 99).setValue(json.BTC_GAS.last);
-  sheet.getRange(2, 99).setValue(json.ETH_GAS.last);
-  sheet.getRange(2, 99).setValue(json.BTC_STORJ.last);
+  sheet.getRange(2, 100).setValue(json.ETH_GAS.last);
+  sheet.getRange(2, 101).setValue(json.BTC_STORJ.last);
   }
