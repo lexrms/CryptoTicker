@@ -25,7 +25,7 @@ function updateCoins(){
   var i = 3;
   Object.keys(parsedPoloniex).forEach(function(key){
     sheet.getRange(1, i).setValue(key);
-    sheet.getRange(2, i).setValue(parsedPoloniex[key]['last']);
+    sheet.getRange(2, i).setValue(parseFloat(parsedPoloniex[key]['last'])).setNumberFormat('#,##0.00000000');
     i++;  
   });
   
