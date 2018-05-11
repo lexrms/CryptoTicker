@@ -4,8 +4,13 @@
 function constructor(){
   
   var sheet = SpreadsheetApp.getActiveSpreadsheet();
-  //Cria planilha Config, se a planilha existe dá erro no scrypt
-  SpreadsheetApp.getActiveSpreadsheet().insertSheet("Config");
+  //Try Catch para tentar criar a Tab, se já existir, usa a já existente.
+  try {
+    //Cria planilha Config, se a planilha existe dá erro no scrypt
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Config"); 
+  }catch(erro){
+    SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Config");
+  }
   sheet.getRange('A1').setValue("Planilha de configuração").setBackground('#c1cdcd').setHorizontalAlignment('center');
   sheet.getRange('A1:C1').mergeAcross();
   sheet.getRange('B2').setValue('Key').setHorizontalAlignment('center');
@@ -13,8 +18,12 @@ function constructor(){
   sheet.getRange('A2:C2').setBackground('#c1cdcd');
   sheet.getRange('A3').setValue('Poloniex').setBackground('#c1cdcd');
   
-  //Cria planilha Moedas, se a planilha existe dá erro no scrypt
-  SpreadsheetApp.getActiveSpreadsheet().insertSheet("Coins");
+  try{
+    //Cria planilha Moedas, se a planilha existe dá erro no scrypt
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Coins");
+  }catch(erro){
+     SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Coins"); 
+  }
   sheet.getRange('A1:CW1').setBackground('#c1cdcd');
   sheet.getRange('A5:CW5').setBackground('#c1cdcd');
   sheet.getRange('B2:B3').setBackground('#c1cdcd');
@@ -26,8 +35,12 @@ function constructor(){
   sheet.getRange('B7').setValue("Foxbit");
 
   
-  //Cria planilha Balance, se a planilha existe dá erro no scrypt
-  SpreadsheetApp.getActiveSpreadsheet().insertSheet("Balance");
+ try{
+    //Cria planilha Balance, se a planilha existe dá erro no scrypt
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Balance");
+  }catch(erro){
+    SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Balance"); 
+  }
   sheet.getRange('A1').setValue('Moeda');
   sheet.getRange('A1:AD1').setBackground('#c3c3c3');
   sheet.getRange('A2').setValue('Total em BRL');
@@ -56,7 +69,11 @@ function constructor(){
   sheet.getRange('B10').setFormula('=SUM(B11:B1000)');
   sheet.getRange('B10').copyTo(sheet.getRange('C10:T10'));
   
+  try{
   //Cria planilha Historical, se a planilha existe dá erro no scrypt
   SpreadsheetApp.getActiveSpreadsheet().insertSheet("Historical");
+  }catch(erro){
+     SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Historical"); 
+  }
   
 }
