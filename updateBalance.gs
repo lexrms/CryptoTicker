@@ -4,7 +4,7 @@
 // Também é necessário criar criar a "API KEY" na exchange Poloniex e colocar a "Key" na célula B3 e a "Secret" na célula C3
 
 // Este script deve rodar apenas uma vez ao dia, sempre no mesmo horário. Ele vai manter o histórico dos valores na exchange Poloniex
-// Para isso vamos setar um trigger
+// Para isso vamos setar um trigger para rodar uma ver por dia a meia-noite. Deve ser feito manualmente.
 
 function updateBalance() {
 
