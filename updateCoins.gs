@@ -1,34 +1,31 @@
-// Crie uma planilha vazia com uma aba com nome Moedas
-// Clique no menu Ferramentas/Editor de Script
-// Copie este texto e cole no script aberto. Renomeie para UpdateCoins
+// Antes de executar este Script vc deve execute o Script Constructor para criar as planilhas
 
 function updateCoins(){
 
   // Coloque o código da planilha na var sheet
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Moedas");
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Coins");
 
   // Lê os dados da Poloniex
   var responsePoloniex = UrlFetchApp.fetch("https://poloniex.com/public?command=returnTicker");
   var parsedPoloniex = JSON.parse(responsePoloniex.getContentText());
 
   // Limpa as células no intervalo B1 até CV2
-  sheet.getRange('B1:CV5').clearContent();
+  sheet.getRange('C1:CV4').clearContent();
   
   // Seta a data para futura referência dos dados
   var dataAtual = new Date();
   sheet.getRange('B1').setValue(dataAtual)
   
   // Valores da última cotação de todas as moedas da Poloniex
-  sheet.getRange('B2').setValue("Poloniex");
   var i = 3;
   Object.keys(parsedPoloniex).forEach(function(key){
     sheet.getRange(1, i).setValue(key);
+    //sheet.getRange(2, i).setValue(parsedPoloniex[key]['last']);
     sheet.getRange(2, i).setValue(parseFloat(parsedPoloniex[key]['last'])).setNumberFormat('#,##0.00000000');
     i++;  
   });
   
   // BITFINEX
-  sheet.getRange('B3').setValue("Bitfinex");
   // BTC
   var responseBitfinexUSDBTC = UrlFetchApp.fetch("https://api.bitfinex.com/v1/pubticker/BTCUSD");
   var parsedBitfinexUSDBTC = JSON.parse(responseBitfinexUSDBTC.getContentText());
@@ -47,28 +44,26 @@ function updateCoins(){
   
   // Cotações em BRL
   // MERCADOBITCOIN
-  sheet.getRange('B4').setValue("Mercado Bitcoin");
   // BTC
   var responseMbBRLBTC = UrlFetchApp.fetch("https://www.mercadobitcoin.net/api/BTC/ticker/");
   var parsedMbBRLBTC = JSON.parse(responseMbBRLBTC.getContentText());
   var rateMbBRLBTC = parsedMbBRLBTC.ticker.last;
-  sheet.getRange(4, 3).setValue(rateMbBRLBTC);
-  // LTC
-  var responseMbBRLLTC = UrlFetchApp.fetch("https://www.mercadobitcoin.net/api/LTC/ticker/");
-  var parsedMbBRLLTC = JSON.parse(responseMbBRLLTC.getContentText());
-  var rateMbBRLLTC = parsedMbBRLLTC.ticker.last;
-  sheet.getRange(4, 20).setValue(rateMbBRLLTC);
+  sheet.getRange('C6').setValue(rateMbBRLBTC);
   // BCH
   var responseMbBRLBCH = UrlFetchApp.fetch("https://www.mercadobitcoin.net/api/BCH/ticker/");
   var parsedMbBRLBCH = JSON.parse(responseMbBRLBCH.getContentText());
   var rateMbBRLBCH = parsedMbBRLBCH.ticker.last;
-  sheet.getRange(4, 90).setValue(rateMbBRLBCH);
+  sheet.getRange('D6').setValue(rateMbBRLBCH);
+  // LTC
+  var responseMbBRLLTC = UrlFetchApp.fetch("https://www.mercadobitcoin.net/api/LTC/ticker/");
+  var parsedMbBRLLTC = JSON.parse(responseMbBRLLTC.getContentText());
+  var rateMbBRLLTC = parsedMbBRLLTC.ticker.last;
+  sheet.getRange('E6').setValue(rateMbBRLLTC);  
   
   // FOXBIT
-  sheet.getRange(5, 2).setValue("Foxbit");
   var responseFoxbitBRLBTC = UrlFetchApp.fetch("https://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC");
   var parsedFoxbitBRLBTC = JSON.parse(responseFoxbitBRLBTC.getContentText());
   var rateFoxbitBRLBTC = parsedFoxbitBRLBTC.last;
-  sheet.getRange(5, 3).setValue(rateFoxbitBRLBTC);
+  sheet.getRange('C7').setValue(rateFoxbitBRLBTC);
 
 }
