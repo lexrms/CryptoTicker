@@ -7,8 +7,7 @@ function constructor(){
   
   // Tenta ativar a planilha Config se der erro cria a planilha
   try {
-    var config= sheet.getSheetByName('Config');
-    config.activate();
+    sheet.getSheetByName('Config').activate();
   }catch(erro){
     SpreadsheetApp.getActiveSpreadsheet().insertSheet("Config"); 
     sheet.getRange('A1').setValue("Planilha de configuração").setBackground('#c1cdcd').setHorizontalAlignment('center');
@@ -21,8 +20,7 @@ function constructor(){
   
   // Tenta ativar a planilha Coins se der erro cria a planilha
   try{
-    var coins = sheet.getSheetByName("Coins");
-    coins.activate();
+    sheet.getSheetByName("Coins").activate();
   }catch(erro){
     SpreadsheetApp.getActiveSpreadsheet().insertSheet("Coins");
     sheet.getRange('A1:CW1').setBackground('#c1cdcd');
@@ -36,10 +34,16 @@ function constructor(){
     sheet.getRange('B7').setValue("Foxbit");
   }
   
-  // Tenta ativar a planilha Balance se der erro cria a planilha
   try{
-    var balance = sheet.getSheetByName("Balance");
-    balance.activate();
+    //Cria planilha Historical, se a planilha existe dá erro no scrypt
+    sheet.getSheetByName('Historical').activate();
+  }catch(erro){
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Historical");
+  }
+
+// Tenta ativar a planilha Balance se der erro cria a planilha
+  try{
+    sheet.getSheetByName("Balance").activate();
   }catch(erro){
     SpreadsheetApp.getActiveSpreadsheet().insertSheet("Balance");
     sheet.getRange('A1').setValue('Moeda');
@@ -69,13 +73,5 @@ function constructor(){
     sheet.getRange('A10:AD10').setBackground('#c1cdcd');
     sheet.getRange('B10').setFormula('=SUM(B11:B1000)');
     sheet.getRange('B10').copyTo(sheet.getRange('C10:T10'));
-  }
-  
-  try{
-    //Cria planilha Historical, se a planilha existe dá erro no scrypt
-    var historical = sheet.getSheetByName('Historical');
-    historical.activate();
-  }catch(erro){
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Historical");
   }  
 }
