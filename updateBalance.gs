@@ -1,6 +1,6 @@
 //Este script é baseado neste trabalho: https://pastebin.com/TXB7Ed7W
 
-// Antes de rodar este script é necessário rodar o script constructor
+// Antes de executar este script é necessário executar o script constructor
 // Também é necessário criar criar a "API KEY" na exchange Poloniex e colocar a "Key" na célula B3 e a "Secret" na célula C3
 // A API deve ser usada SOMENTE para esta aplicação.
 
