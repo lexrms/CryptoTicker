@@ -1,9 +1,10 @@
 //Este script é baseado neste trabalho: https://pastebin.com/TXB7Ed7W
 
-// Antes de rodar este script é necessário ter as planilhas criadas "Config" e "Historical"
+// Antes de rodar este script é necessário rodar o script constructor
 // Também é necessário criar criar a "API KEY" na exchange Poloniex e colocar a "Key" na célula B3 e a "Secret" na célula C3
+// A API deve ser usada SOMENTE para esta aplicação.
 
-// Este script deve rodar apenas uma vez ao dia, sempre no mesmo horário. Ele vai manter o histórico dos valores na exchange Poloniex
+// Este script deve rodar apenas uma vez ao dia, sempre no mesmo horário. Ele vai manter o histórico dos saldos da sua conta na exchange Poloniex
 // Para isso vamos setar um trigger para rodar uma ver por dia a meia-noite. Deve ser feito manualmente.
 
 function updateBalance() {
