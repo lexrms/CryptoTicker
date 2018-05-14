@@ -60,12 +60,12 @@ function updateBalance() {
        parseFloat(parsedPoloniexBalances[key]['btcValue']) > 0){ 
       sheet.getRange(2, 1).setValue(dataAtual);
       sheet.getRange(lin, col+1).setValue(key);
-      sheet.getRange(lin+1, col+1).setValue(Number(parsedPoloniexBalances[key]['onOrders'])+Number((parsedPoloniexBalances[key]['available'])));
+      sheet.getRange(lin+1, col+1).setValue(Number(parsedPoloniexBalances[key]['onOrders'])+Number((parsedPoloniexBalances[key]['available']))).setNumberFormat('#,##0.00000000');
          col++; 
        }//fim IF
   }); //fim FOREACH 
   
   // Vamos mandar a linha 2 inteira para a linha 3.
-  sheet.insertRowsBefore(1, 1)
+  sheet.insertRowsAfter(1, 1)
 
 };
