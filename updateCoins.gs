@@ -48,17 +48,17 @@ function updateCoins(){
   var responseMbBRLBTC = UrlFetchApp.fetch('https://www.mercadobitcoin.net/api/BTC/ticker/');
   var parsedMbBRLBTC = JSON.parse(responseMbBRLBTC.getContentText());
   var rateMbBRLBTC = parsedMbBRLBTC.ticker.last;
-  sheet.getRange('C6').setValue(rateMbBRLBTC.replace('.',',')).setNumberFormat('#,##0.00');
+  sheet.getRange('C6').setValue(rateMbBRLBTC).setNumberFormat('#,##0.00');
   // BCH
   var responseMbBRLBCH = UrlFetchApp.fetch('https://www.mercadobitcoin.net/api/BCH/ticker/');
   var parsedMbBRLBCH = JSON.parse(responseMbBRLBCH.getContentText());
   var rateMbBRLBCH = parsedMbBRLBCH.ticker.last;
-  sheet.getRange('D6').setValue(rateMbBRLBCH.replace('.',',')).setNumberFormat('#,##0.00');
+  sheet.getRange('D6').setValue(rateMbBRLBCH).setNumberFormat('#,##0.00');
   // LTC
   var responseMbBRLLTC = UrlFetchApp.fetch('https://www.mercadobitcoin.net/api/LTC/ticker/');
   var parsedMbBRLLTC = JSON.parse(responseMbBRLLTC.getContentText());
   var rateMbBRLLTC = parsedMbBRLLTC.ticker.last;
-  sheet.getRange('E6').setValue(rateMbBRLLTC.replace('.',',')).setNumberFormat('#,##0.00'); 
+  sheet.getRange('E6').setValue(rateMbBRLLTC).setNumberFormat('#,##0.00'); 
   
   // FOXBIT
   var responseFoxbitBRLBTC = UrlFetchApp.fetch('https://api.blinktrade.com/api/v1/BRL/ticker?crypto_currency=BTC');
