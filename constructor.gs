@@ -9,8 +9,8 @@ function constructor(){
   try {
     sheet.getSheetByName('Config').activate();
   }catch(erro){
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Config"); 
-    sheet.getRange('A1').setValue("Planilha de configuração").setBackground('#c1cdcd').setHorizontalAlignment('center');
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Config'); 
+    sheet.getRange('A1').setValue('Planilha de configuração').setBackground('#c1cdcd').setHorizontalAlignment('center');
     sheet.getRange('A1:C1').mergeAcross();
     sheet.getRange('B2').setValue('Key').setHorizontalAlignment('center');
     sheet.getRange('C2').setValue('Secret').setHorizontalAlignment('center');
@@ -20,32 +20,32 @@ function constructor(){
   
   // Tenta ativar a planilha Coins se der erro cria a planilha
   try{
-    sheet.getSheetByName("Coins").activate();
+    sheet.getSheetByName('Coins').activate();
   }catch(erro){
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Coins");
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Coins');
     sheet.getRange('A1:CW1').setBackground('#c1cdcd');
     sheet.getRange('A5:CW5').setBackground('#c1cdcd');
     sheet.getRange('B2:B3').setBackground('#c1cdcd');
     sheet.getRange('B6:B7').setBackground('#c1cdcd');
-    sheet.getRange('B2').setValue("Poloniex");
-    sheet.getRange('B3').setValue("Bitfinex");
-    sheet.getRange('C5:E5').setValues([["BRL_BTC", "BRL_BCH", "BRL_LTC"]]);
-    sheet.getRange('B6').setValue("Mercado Bitcoin");
-    sheet.getRange('B7').setValue("Foxbit");
+    sheet.getRange('B2').setValue('Poloniex');
+    sheet.getRange('B3').setValue('Bitfinex');
+    sheet.getRange('C5:E5').setValues([['BRL_BTC', 'BRL_BCH', 'BRL_LTC']]);
+    sheet.getRange('B6').setValue('Mercado Bitcoin');
+    sheet.getRange('B7').setValue('Foxbit');
   }
   
   try{
     //Cria planilha Historical, se a planilha existe dá erro no scrypt
     sheet.getSheetByName('Historical').activate();
   }catch(erro){
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Historical");
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Historical');
   }
 
 // Tenta ativar a planilha Balance se der erro cria a planilha
   try{
-    sheet.getSheetByName("Balance").activate();
+    sheet.getSheetByName('Balance').activate();
   }catch(erro){
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet("Balance");
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Balance');
     sheet.getRange('A1').setValue('Moeda');
     sheet.getRange('A1:AD1').setBackground('#c3c3c3');
     sheet.getRange('A2').setValue('Total em BRL');
