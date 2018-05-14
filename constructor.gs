@@ -76,5 +76,15 @@ function constructor(){
     sheet.getRange('B3:T4').setNumberFormat('#,##0.00');
     sheet.getRange('B6:T7').setNumberFormat('#,##0.00');
     sheet.getRange('B9:T1000').setNumberFormat('#,##0.00000000');
+    // Total (esta parte é provisória)
+    sheet.getRange('U1').setValue('Total Geral');
+    sheet.getRange('U2').setValue('BRL');
+    sheet.getRange('U3').setFormula('=sum(B3:T3)');
+    sheet.getRange('U4').setFormula('=sum(B4:T4)');
+    sheet.getRange('U5').setValue('USD');
+    sheet.getRange('U6').setFormula('=sum(B6:T6)');
+    sheet.getRange('U7').setFormula('=sum(B7:T7)');
+    sheet.getRange('U8').setValue('BTC');
+    sheet.getRange('U9').setFormula('=sum(B9:T9)');
   }  
 }
