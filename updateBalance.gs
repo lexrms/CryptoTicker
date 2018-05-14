@@ -66,6 +66,6 @@ function updateBalance() {
   }); //fim FOREACH 
   
   // Vamos mandar a linha 2 inteira para a linha 3.
-  sheet.insertRowsBefore(1, 1)
+  sheet.insertRowsAfter(1, 1)
 
 };
