@@ -73,5 +73,8 @@ function constructor(){
     sheet.getRange('A10:AD10').setBackground('#c1cdcd');
     sheet.getRange('B10').setFormula('=SUM(B11:B1000)');
     sheet.getRange('B10').copyTo(sheet.getRange('C10:T10'));
+    sheet.getRange('B3:T4').setNumberFormat('#,##0.00');
+    sheet.getRange('B6:T7').setNumberFormat('#,##0.00');
+    sheet.getRange('B9:T1000').setNumberFormat('#,##0.00000000');
   }  
 }
