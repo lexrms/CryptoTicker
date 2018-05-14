@@ -1,7 +1,7 @@
 //Este script é baseado neste trabalho: https://pastebin.com/TXB7Ed7W
 
 // Antes de executar este script é necessário executar o script constructor
-// Também é necessário criar criar a "API KEY" na exchange Poloniex e colocar a "Key" na célula B3 e a "Secret" na célula C3
+// Também é necessário criar criar a 'API KEY' na exchange Poloniex e colocar a 'Key' na célula B3 e a 'Secret' na célula C3
 // A API deve ser usada SOMENTE para esta aplicação.
 
 // Este script deve rodar apenas uma vez ao dia, sempre no mesmo horário. Ele vai manter o histórico dos saldos da sua conta na exchange Poloniex
@@ -14,10 +14,10 @@ function updateBalance() {
   var nonce = 1466952818896405 + new Date().getTime();
 
   // A váriavel p contém o comando para acessar a api acrescida da variável nonce
-  var p = "command=returnCompleteBalances&account=all&nonce="+nonce;
+  var p = 'command=returnCompleteBalances&account=all&nonce='+nonce;
   
   // Aqui eu pego os valores da planilha Config e coloco em duas variáveis
-  var configSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Config");
+  var configSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Config');
   var poloniexKey = configSheet.getRange('B3').getValue();
   var poloniexSecret = configSheet.getRange('C3').getValue();
   
@@ -31,22 +31,22 @@ function updateBalance() {
   
   // Criamos a variável headers e dentro os objetos Key e Sign que contem a chave e a assinatura criada anteriormente
   var headers = {
-    "Key" : poloniexKey,
-    "Sign" : signature
+    'Key' : poloniexKey,
+    'Sign' : signature
   };
   
-  // Definimos 'options' com o metodo POST, especificando "headers" (cabeçalho) e "payload" (carga útil)
+  // Definimos 'options' com o metodo POST, especificando 'headers' (cabeçalho) e 'payload' (carga útil)
   var options = {
-    "method" : "POST",
-    "headers": headers,
-    "payload": p
+    'method' : 'POST',
+    'headers': headers,
+    'payload': p
   };
 
   // Lemos a URL com os dados para obter a resposta do servidor Poloniex
-  var response2 = UrlFetchApp.fetch("https://poloniex.com/tradingApi", options);
+  var response2 = UrlFetchApp.fetch('https://poloniex.com/tradingApi', options);
 
   // Aqui é definida a aba da planilha onde vamos popular os dados
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Historical");
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Historical');
 
   // Objeto JSON para objeto javascript parsedPoloniexBalances
   var parsedPoloniexBalances = JSON.parse(response2.getContentText());
