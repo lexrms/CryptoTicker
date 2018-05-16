@@ -1,5 +1,5 @@
 // Ainda não terminado, mas cria as planilhas necessárias
-// A planilha Balance faltam alguns detalhes que dependem de updateCoins e updateBalance
+// A planilha Balance faltam alguns detalhes que dependem de updateMarkets e updateBalance
 
 function constructor(){
   
@@ -18,11 +18,11 @@ function constructor(){
     sheet.getRange('A3').setValue('Poloniex').setBackground('#c1cdcd');
   }
   
-  // Tenta ativar a planilha Coins se der erro cria a planilha
+  // Tenta ativar a planilha Markets se der erro cria a planilha
   try{
-    sheet.getSheetByName('Coins').activate();
+    sheet.getSheetByName('Markets').activate();
   }catch(erro){
-    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Coins');
+    SpreadsheetApp.getActiveSpreadsheet().insertSheet('Markets');
     sheet.getRange('A1:CW1').setBackground('#c1cdcd');
     sheet.getRange('A5:CW5').setBackground('#c1cdcd');
     sheet.getRange('B2:B3').setBackground('#c1cdcd');
@@ -51,24 +51,24 @@ function constructor(){
     sheet.getRange('A2').setValue('Total em BRL');
     sheet.getRange('A2:AD2').setBackground('#c1cdcd');
     sheet.getRange('A3').setValue('Foxbit').setBackground('#c1cdcd');
-    sheet.getRange('B3').setFormula('=B9*Coins!$C7');
+    sheet.getRange('B3').setFormula('=B9*Markets!$C7');
     sheet.getRange('B3').copyTo(sheet.getRange('C3:T3'));
     sheet.getRange('A4').setValue('Mercado Bitcoin').setBackground('#c1cdcd');
-    sheet.getRange('B4').setFormula('=B9*Coins!$C6');
+    sheet.getRange('B4').setFormula('=B9*Markets!$C6');
     sheet.getRange('B4').copyTo(sheet.getRange('C4:T4'));
     sheet.getRange('A5').setValue('Total em USD');
     sheet.getRange('A5:AD5').setBackground('#c1cdcd');
     sheet.getRange('A6').setValue('Bitfinex').setBackground('#c1cdcd');
-    sheet.getRange('B6').setFormula('=B9*Coins!$AQ3');
+    sheet.getRange('B6').setFormula('=B9*Markets!$AQ3');
     sheet.getRange('B6').copyTo(sheet.getRange('C6:T6'));
     sheet.getRange('A7').setValue('Poloniex').setBackground('#c1cdcd');
-    sheet.getRange('B7').setFormula('=B9*Coins!$AQ2');
+    sheet.getRange('B7').setFormula('=B9*Markets!$AQ2');
     sheet.getRange('B7').copyTo(sheet.getRange('C7:T7'));
     sheet.getRange('A8').setValue('Total em BTC');
     sheet.getRange('A8:AD8').setBackground('#c1cdcd');
     sheet.getRange('A9').setValue('Poloniex').setBackground('#c1cdcd');
     sheet.getRange('B9').setValue('=B10');
-    sheet.getRange('C9').setValue('=C10*Coins!BE2');
+    sheet.getRange('C9').setValue('=C10*Markets!BE2');
     sheet.getRange('A10').setValue('Total da moeda');
     sheet.getRange('A10:AD10').setBackground('#c1cdcd');
     sheet.getRange('B10').setFormula('=SUM(B11:B1000)');
