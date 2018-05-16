@@ -1,9 +1,9 @@
 // Antes de executar este Script vc deve execute o Script Constructor para criar as planilhas
 
-function updateCoins(){
+function updateMarkets(){
 
   // Coloque o código da planilha na var sheet
-  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Coins');
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Markets');
 
   // Lê os dados da Poloniex
   var responsePoloniex = UrlFetchApp.fetch('https://poloniex.com/public?command=returnTicker');
