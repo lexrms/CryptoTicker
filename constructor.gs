@@ -60,10 +60,10 @@ function constructor(){
     sheet.getRange('A5').setValue('Total em USD');
     sheet.getRange('A5:AD5').setBackground('#c1cdcd');
     sheet.getRange('A6').setValue('Bitfinex').setBackground('#c1cdcd');
-    sheet.getRange('B6').setFormula('=B9*Markets!$AQ3');
+    sheet.getRange('B6').setFormula('=IFERROR(B9*HLOOKUP("USDT_BTC",Markets!$C$1:$CW$3,3,false))');
     sheet.getRange('B6').copyTo(sheet.getRange('C6:T6'));
     sheet.getRange('A7').setValue('Poloniex').setBackground('#c1cdcd');
-    sheet.getRange('B7').setFormula('=B9*Markets!$AQ2');
+    sheet.getRange('B7').setFormula('=IFERROR(B9*HLOOKUP("USDT_BTC",Markets!$C$1:$CW$2,2,false))');
     sheet.getRange('B7').copyTo(sheet.getRange('C7:T7'));
     sheet.getRange('A8').setValue('Total em BTC');
     sheet.getRange('A8:AD8').setBackground('#c1cdcd');
