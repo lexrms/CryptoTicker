@@ -69,6 +69,8 @@ function constructor(){
     sheet.getRange('A8:AD8').setBackground('#c1cdcd');
     sheet.getRange('A9').setValue('Poloniex').setBackground('#c1cdcd');
     sheet.getRange('B9').setValue('=B10');
+    sheet.getRange('B9:W9').setNumberFormat('#,##0.00000000');
+
     // Pega os valores da Polo em Markets
     sheet.getRange('C9:W9').setValue('=IFERROR(C10*HLOOKUP(CONCAT("BTC_",C1),Markets!$C$1:$CW$2,2,false))');
     sheet.getRange('A10').setValue('Total da moeda');
