@@ -16,6 +16,7 @@ function constructor(){
     sheet.getRange('C2').setValue('Secret').setHorizontalAlignment('center');
     sheet.getRange('A2:C2').setBackground('#c1cdcd');
     sheet.getRange('A3').setValue('Poloniex').setBackground('#c1cdcd');
+    sheet.getRange('A4').setValue('Bitfinex').setBackground('#c1cdcd');
   }
   
   // Tenta ativar a planilha Markets se der erro cria a planilha
@@ -83,7 +84,7 @@ function constructor(){
     
     // Pega os valores da Polo em Historical
     sheet.getRange('A11').setValue('Poloniex');
-    sheet.getRange('B11:W11').setValue('=IFERROR(HLOOKUP(B1,Historical!$B$1:$Z$3,3,false))');
+    sheet.getRange('B11:W11').setValue('=IFERROR(HLOOKUP(B1,Historical!$B$1:$Z$3,3,false))').setNumberFormat('#,##0.00000000');
     
     // Total (esta parte é provisória)
     sheet.getRange('X1').setValue('Total Geral');
