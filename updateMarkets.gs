@@ -1,4 +1,5 @@
-// Antes de executar este Script vc deve execute o Script Constructor para criar as planilhas
+// Antes de executar este Script execute o Script Constructor para criar as planilhas e preencher as configurações necessárias
+// na planilha config
 
 function updateMarkets(){
 
@@ -9,7 +10,7 @@ function updateMarkets(){
   var responsePoloniex = UrlFetchApp.fetch('https://poloniex.com/public?command=returnTicker');
   var parsedPoloniex = JSON.parse(responsePoloniex.getContentText());
 
-  // Limpa as células no intervalo B1 até CV2
+  // Limpa as células no intervalo B1 até CV4
   sheet.getRange('C1:CV4').clearContent();
   
   // Seta a data para futura referência dos dados
@@ -30,18 +31,18 @@ function updateMarkets(){
   var responseBitfinexUSDBTC = UrlFetchApp.fetch('https://api.bitfinex.com/v1/pubticker/BTCUSD');
   var parsedBitfinexUSDBTC = JSON.parse(responseBitfinexUSDBTC.getContentText());
   var rateBitfinexUSDBTC = parsedBitfinexUSDBTC.last_price;
-  sheet.getRange('AP3').setValue(rateBitfinexUSDBTC);
+    sheet.getRange('AB3').setValue(rateBitfinexUSDBTC);
   // ETH
   var responseBitfinexUSDETH = UrlFetchApp.fetch('https://api.bitfinex.com/v1/pubticker/ETHUSD');
   var parsedBitfinexUSDETH = JSON.parse(responseBitfinexUSDETH.getContentText());
   var rateBitfinexUSDETH = parsedBitfinexUSDETH.last_price;
-  sheet.getRange('BE3').setValue(rateBitfinexUSDETH);
+  sheet.getRange('AO3').setValue(rateBitfinexUSDETH);
   // XMR
   var responseBitfinexUSDXMR = UrlFetchApp.fetch('https://api.bitfinex.com/v1/pubticker/XMRUSD');
   var parsedBitfinexUSDXMR = JSON.parse(responseBitfinexUSDXMR.getContentText());
   var rateBitfinexUSDXMR = parsedBitfinexUSDXMR.last_price;
-  sheet.getRange('AU3').setValue(rateBitfinexUSDXMR);
-  
+  sheet.getRange('AG3').setValue(rateBitfinexUSDXMR);
+    
   // Cotações em BRL
   // MERCADOBITCOIN
   // BTC
