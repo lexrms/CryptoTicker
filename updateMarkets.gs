@@ -28,19 +28,19 @@ function updateMarkets(){
   
   // BITFINEX
   // BTC
-  var responseBitfinexUSDBTC = UrlFetchApp.fetch('https://api.bitfinex.com/v1/pubticker/BTCUSD');
+  var responseBitfinexUSDBTC = UrlFetchApp.fetch('https://api-pub.bitfinex.com/v2/tickers?symbols=tBTCUSD');
   var parsedBitfinexUSDBTC = JSON.parse(responseBitfinexUSDBTC.getContentText());
-  var rateBitfinexUSDBTC = parsedBitfinexUSDBTC.last_price;
+  var rateBitfinexUSDBTC = parsedBitfinexUSDBTC[0][7];
     sheet.getRange('AB3').setValue(rateBitfinexUSDBTC);
   // ETH
-  var responseBitfinexUSDETH = UrlFetchApp.fetch('https://api.bitfinex.com/v1/pubticker/ETHUSD');
+  var responseBitfinexUSDETH = UrlFetchApp.fetch('https://api-pub.bitfinex.com/v2/tickers?symbols=tETHUSD');
   var parsedBitfinexUSDETH = JSON.parse(responseBitfinexUSDETH.getContentText());
-  var rateBitfinexUSDETH = parsedBitfinexUSDETH.last_price;
+  var rateBitfinexUSDETH = parsedBitfinexUSDETH[0][7];
   sheet.getRange('AO3').setValue(rateBitfinexUSDETH);
   // XMR
-  var responseBitfinexUSDXMR = UrlFetchApp.fetch('https://api.bitfinex.com/v1/pubticker/XMRUSD');
+  var responseBitfinexUSDXMR = UrlFetchApp.fetch('https://api-pub.bitfinex.com/v2/tickers?symbols=tXMRUSD');
   var parsedBitfinexUSDXMR = JSON.parse(responseBitfinexUSDXMR.getContentText());
-  var rateBitfinexUSDXMR = parsedBitfinexUSDXMR.last_price;
+  var rateBitfinexUSDXMR = parsedBitfinexUSDXMR[0][7];
   sheet.getRange('AG3').setValue(rateBitfinexUSDXMR);
     
   // Cotações em BRL
